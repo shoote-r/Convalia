@@ -50,7 +50,7 @@ export default function ProfileScreen({ navigation }: any) {
 
         <TouchableOpacity
           style={styles.logoutButton}
-          onPress={() => navigation.replace('Auth')}>
+          onPress={() => navigation.replace('RoleSelection')}>
           <Text style={styles.logoutButtonText}>Déconnexion</Text>
         </TouchableOpacity>
       </View>

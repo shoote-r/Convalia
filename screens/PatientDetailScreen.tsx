@@ -15,8 +15,6 @@ export default function PatientDetailScreen({ route, navigation }: any) {
 
   const saveInfo = () => {
     if (!patient) return;
-    const newNote = addNote(patient.id, { rehab, diet, prescription });
-    setNotes((s) => [newNote, ...s]);
     Alert.alert('Enregistré', 'Les informations ont été ajoutées au dossier du patient.');
     navigation.goBack();
   };
@@ -34,7 +32,6 @@ export default function PatientDetailScreen({ route, navigation }: any) {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity
@@ -50,7 +47,7 @@ export default function PatientDetailScreen({ route, navigation }: any) {
         </View>
 
         <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
-          <View style={styles.section}>
+          <TouchableOpacity style={styles.section} onPress={() => navigation.navigate('VitalsChart', { patientId: patient?.id })}>
             <View style={styles.sectionHeader}>
               <Activity size={20} color={colors.primary} />
               <Text style={styles.sectionTitle}>Constantes vitales</Text>
@@ -69,7 +66,7 @@ export default function PatientDetailScreen({ route, navigation }: any) {
                 <Text style={styles.vitalLabel}>SpO₂ (%)</Text>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
 
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
@@ -167,7 +164,6 @@ export default function PatientDetailScreen({ route, navigation }: any) {
           </View>
         </ScrollView>
       </View>
-    </SafeAreaView>
   );
 }
 
@@ -184,6 +180,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     paddingHorizontal: 16,
     paddingVertical: 12,
+    paddingTop: 60,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

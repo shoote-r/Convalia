@@ -5,6 +5,7 @@ import { typography } from '@/theme/typography';
 import { getAllPatients } from '@/lib/patientStore';
 import { useIsFocused } from '@react-navigation/native';
 import { LogOut, Stethoscope } from 'lucide-react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function DoctorHomeScreen({ navigation }: any) {
   const [patients, setPatients] = useState(getAllPatients());
@@ -21,7 +22,7 @@ export default function DoctorHomeScreen({ navigation }: any) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerContent}>
           <View style={styles.headerLeft}>
@@ -78,7 +79,7 @@ export default function DoctorHomeScreen({ navigation }: any) {
           )}
         />
       </View>
-    </SafeAreaView>
+      </ScrollView>
   );
 }
 
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: colors.primary,
     paddingHorizontal: 20,
-    paddingTop: 12,
+    paddingTop: 60,
     paddingBottom: 16,
   },
   headerContent: {

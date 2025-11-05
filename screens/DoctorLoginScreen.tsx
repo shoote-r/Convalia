@@ -9,14 +9,13 @@ export default function DoctorLoginScreen({ navigation }: any) {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // For demo purposes accept any non-empty credentials
-    if (!email || !password) return Alert.alert('Erreur', "Veuillez entrer vos identifiants.");
     // In a real app validate credentials with backend
     navigation.replace('Doctor');
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <ScrollView style={styles.container}>
+        <View style={styles.header}>
       <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -73,17 +72,19 @@ export default function DoctorLoginScreen({ navigation }: any) {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+        </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
+
+  container: {
     flex: 1,
     backgroundColor: colors.background,
   },
-  container: {
-    flex: 1,
+  header: {
+    paddingTop: 60,
   },
   scrollContent: {
     flexGrow: 1,
