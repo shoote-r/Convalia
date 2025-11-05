@@ -22,7 +22,7 @@ export default function DoctorHomeScreen({ navigation }: any) {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerContent}>
           <View style={styles.headerLeft}>
@@ -79,7 +79,7 @@ export default function DoctorHomeScreen({ navigation }: any) {
           )}
         />
       </View>
-      </ScrollView>
+      </View>
   );
 }
 
