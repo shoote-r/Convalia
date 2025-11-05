@@ -6,7 +6,8 @@ import { typography } from '@/theme/typography';
 export default function SplashScreen({ navigation }: any) {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('Auth');
+      // Show role selection before entering the auth flow
+      navigation.replace('RoleSelection');
     }, 2000);
 
     return () => clearTimeout(timer);

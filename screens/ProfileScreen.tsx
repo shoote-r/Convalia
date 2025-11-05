@@ -3,8 +3,14 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-nati
 import { colors } from '@/theme/colors';
 import { typography } from '@/theme/typography';
 import { User } from 'lucide-react-native';
+import { Alert } from 'react-native';
+import { router } from 'expo-router';
 
 export default function ProfileScreen({ navigation }: any) {
+    const handleSubmit = () => {
+      Alert.alert('La mutuelle a été modifiée avec succès !');
+    };
+  
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -31,7 +37,14 @@ export default function ProfileScreen({ navigation }: any) {
           <View style={styles.divider} />
           <View style={styles.infoRow}>
             <Text style={styles.infoLabel}>Ma Mutuelle</Text>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+             <View style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingTop: 10}}>
             <Text style={styles.infoValue}>Mutuelle Santé Plus</Text>
+              </View>
+             <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+                      <Text style={styles.submitButtonText}>Modifier</Text>
+                    </TouchableOpacity>
+                     </View>
           </View>
         </View>
 
@@ -116,5 +129,20 @@ const styles = StyleSheet.create({
   logoutButtonText: {
     ...typography.button,
     color: colors.white,
+  },
+  submitButtonText: {
+    ...typography.button,
+    color: colors.white,
+
+  },
+  submitButton: {
+    width: 150,
+    height: 48,
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center',
+    marginTop: 12,
   },
 });
