@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
   },
   vitalValue: {
     ...typography.h2,
-    fontSize: 24,
+    fontSize: 22,
     color: colors.primary,
     marginBottom: 4,
   },
