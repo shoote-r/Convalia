@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { colors } from '@/theme/colors';
 import { typography } from '@/theme/typography';
+import { ArrowLeft } from 'lucide-react-native';
 
 export default function LoginScreen({ navigation }: any) {
   const [email, setEmail] = useState('');
@@ -20,9 +21,16 @@ export default function LoginScreen({ navigation }: any) {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <View style={styles.header}>
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         keyboardShouldPersistTaps="handled">
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.replace('RoleSelection')}>
+            <ArrowLeft size={24} color={colors.textSecondary} />
+            <Text style={styles.backText}>Retour</Text>
+          </TouchableOpacity>
         <View style={styles.content}>
           <View style={styles.logo}>
             <Text style={styles.logoText}>C</Text>
@@ -70,6 +78,7 @@ export default function LoginScreen({ navigation }: any) {
           </View>
         </View>
       </ScrollView>
+      </View>
     </KeyboardAvoidingView>
   );
 }
@@ -87,6 +96,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 24,
+  },
+  header: {
+    paddingTop: 60,
   },
   logo: {
     width: 80,
@@ -115,6 +127,12 @@ const styles = StyleSheet.create({
   inputContainer: {
     marginBottom: 20,
   },
+    backText: {
+    ...typography.body,
+    color: colors.textSecondary,
+    marginLeft: 8,
+    fontWeight: '600',
+  },
   label: {
     ...typography.body,
     color: colors.textPrimary,
@@ -140,6 +158,12 @@ const styles = StyleSheet.create({
   primaryButtonText: {
     ...typography.button,
     color: colors.white,
+  },
+   backButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    paddingTop: 20,
   },
   textButton: {
     padding: 16,

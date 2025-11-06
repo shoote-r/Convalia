@@ -24,7 +24,7 @@ export default function DoctorLoginScreen({ navigation }: any) {
           keyboardShouldPersistTaps="handled">
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.replace('Auth')}>
+            onPress={() => navigation.replace('RoleSelection')}>
             <ArrowLeft size={24} color={colors.textSecondary} />
             <Text style={styles.backText}>Retour</Text>
           </TouchableOpacity>
