@@ -1,1 +1,1 @@
-apphealth
+Vibecodded app for an hackathon.
